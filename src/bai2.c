@@ -67,10 +67,17 @@ void nenDelta(int goc[], int delta[], int n) {
     for (int i = 1; i < n; i++) {
         delta[i] = goc[i] - goc[i - 1];
     }
-    
+
 }
 
 void giaiNenDelta(int delta[], int khoiPhuc[], int n) {
+    if (n <= 0) {
+        return;
+    }
+    khoiPhuc[0] = delta[0];
+    for (int i = 1; i < n; i++) {
+        khoiPhuc[i] = khoiPhuc[i - 1] + delta[i];
+    }
     // TODO: Khôi phục mảng gốc từ mảng delta[]
     // - khoiPhuc[0] = delta[0]
     // - Với i >= 1: khoiPhuc[i] = khoiPhuc[i-1] + delta[i]
